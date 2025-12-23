@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Sherpa Community Homestay | Sukhia Pokhari, West Bengal</title>
+  <meta name="description" content="Stay at Sherpa Community Homestay in Sukhia Pokhari, West Bengal. Enjoy authentic Sherpa hospitality, cozy rooms, home-cooked meals, and peaceful mountain views.">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    html { scroll-behavior: smooth; }
+    :root { --primary:#1e40af; --bg:#f8fafc; }
+
+    .btn-primary {
+      @apply bg-[--primary] text-white px-5 py-3 rounded-md shadow font-medium;
+    }
+    .btn-whatsapp {
+      @apply bg-[#25D366] text-black px-5 py-3 rounded-md shadow font-medium;
+    }
+  </style>
+</head>
+
+<body class="bg-[--bg] text-gray-800 pt-16">
+
+<!-- HEADER -->
+<header class="fixed top-0 w-full bg-white shadow z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <h1 class="text-lg font-semibold text-[--primary]">Sherpa Community Homestay</h1>
+    <a href="https://wa.me/918942839079" target="_blank" class="btn-whatsapp text-sm">
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative h-[80vh]">
+  <img src="images/hero.jpg" class="w-full h-full object-cover" alt="Sherpa Community Homestay">
+  <div class="absolute inset-0 bg-black/40 flex items-center">
+    <div class="container mx-auto px-6 text-white">
+      <h2 class="text-3xl md:text-5xl font-bold max-w-3xl">
+        Sherpa Community Homestay
+      </h2>
+      <p class="mt-4 max-w-2xl">
+        Authentic Sherpa hospitality, peaceful village life, and mountain air —
+        Sukhia Pokhari, West Bengal.
+      </p>
+      <div class="mt-6 flex gap-3">
+        <a href="#booking" class="btn-primary">Book Your Stay</a>
+        <a href="https://wa.me/918942839079" target="_blank" class="btn-whatsapp">
+          Contact on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="py-12 container mx-auto px-6">
+  <h3 class="text-2xl font-semibold mb-4">Welcome to Our Homestay</h3>
+  <p class="max-w-3xl text-gray-700">
+    Sherpa Community Homestay offers a warm family stay experience with clean rooms,
+    home-cooked food, and beautiful surroundings. Ideal for travelers looking for
+    peace, culture, and nature.
+  </p>
+
+  <ul class="mt-4 list-disc list-inside text-gray-700">
+    <li>Clean & cozy rooms</li>
+    <li>Traditional home-cooked meals</li>
+    <li>Peaceful village environment</li>
+    <li>Friendly Sherpa family hosts</li>
+  </ul>
+</section>
+
+<!-- GALLERY -->
+<section class="py-12 bg-white">
+  <div class="container mx-auto px-6">
+    <h3 class="text-2xl font-semibold mb-6 text-center">Gallery</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="images/g1.jpg" class="rounded shadow object-cover h-40 w-full">
+      <img src="images/g2.jpg" class="rounded shadow object-cover h-40 w-full">
+      <img src="images/g3.jpg" class="rounded shadow object-cover h-40 w-full">
+      <img src="images/g4.jpg" class="rounded shadow object-cover h-40 w-full">
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="py-12 container mx-auto px-6">
+  <div class="max-w-lg mx-auto bg-white shadow rounded-xl p-6">
+    <h3 class="text-xl font-semibold mb-4 text-center">Book Your Stay</h3>
+
+    <form id="bookingForm" class="space-y-3">
+      <input required placeholder="Your Name" class="w-full p-3 border rounded">
+      <input required type="tel" placeholder="Phone Number" class="w-full p-3 border rounded">
+      <input required type="date" class="w-full p-3 border rounded">
+      <input required type="date" class="w-full p-3 border rounded">
+      <input required type="number" min="1" placeholder="Guests" class="w-full p-3 border rounded">
+
+      <button type="submit" class="btn-primary w-full">
+        Send Booking via WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="py-12">
+  <div class="container mx-auto px-6">
+    <h3 class="text-2xl font-semibold mb-4 text-center">Our Location</h3>
+    <iframe
+      src="https://www.google.com/maps?q=X5P6+36+Sukhia+Pokhari+West+Bengal&output=embed"
+      width="100%" height="400" style="border:0;" loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white py-6 text-center text-sm text-gray-600">
+  © Sherpa Community Homestay, Sukhia Pokhari
+</footer>
+
+<script>
+  document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const msg = "Hello! I would like to book a stay at Sherpa Community Homestay.";
+    window.open("https://wa.me/918942839079?text=" + encodeURIComponent(msg), "_blank");
+  });
+</script>
+
+</body>
+</html>
