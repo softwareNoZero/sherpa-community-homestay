@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Sherpa Community Homestay | Sukhia Pokhari, West Bengal</title>
-  <meta name="description" content="Stay at Sherpa Community Homestay in Sukhia Pokhari, West Bengal. Enjoy authentic Sherpa hospitality, cozy rooms, home-cooked meals, and peaceful mountain views.">
+  <meta name="description" content="Stay at Sherpa Community Homestay in Sukhia Pokhari, West Bengal. Enjoy authentic Sherpa hospitality, cozy rooms, and peaceful mountain views.">
 
   <!-- Tailwind -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -48,7 +48,7 @@
         Sukhia Pokhari, West Bengal.
       </p>
       <div class="mt-6 flex gap-3">
-        <a href="#booking" class="btn-primary">Book Your Stay</a>
+        <a href="#rooms" class="btn-primary">View Rooms</a>
         <a href="https://wa.me/918942839079" target="_blank" class="btn-whatsapp">
           Contact on WhatsApp
         </a>
@@ -62,8 +62,8 @@
   <h3 class="text-2xl font-semibold mb-4">Welcome to Our Homestay</h3>
   <p class="max-w-3xl text-gray-700">
     Sherpa Community Homestay offers a warm family stay experience with clean rooms,
-    home-cooked food, and beautiful surroundings. Ideal for travelers looking for
-    peace, culture, and nature.
+    home-cooked food, and beautiful surroundings. Ideal for travelers seeking peace,
+    culture, and nature.
   </p>
 
   <ul class="mt-4 list-disc list-inside text-gray-700">
@@ -74,8 +74,82 @@
   </ul>
 </section>
 
+<!-- ROOMS -->
+<section id="rooms" class="py-12 bg-white">
+  <div class="container mx-auto px-6">
+    <h3 class="text-2xl font-semibold text-center mb-8">Our Rooms</h3>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- ROOM 1 -->
+      <div class="border rounded-xl shadow-sm overflow-hidden">
+        <img src="images/room1.jpg" class="h-48 w-full object-cover" alt="Deluxe Room">
+        <div class="p-4">
+          <h4 class="text-lg font-semibold">Deluxe Room</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Cozy room with mountain views and attached bathroom.
+          </p>
+          <ul class="text-sm text-gray-700 mt-2 list-disc list-inside">
+            <li>2 Guests</li>
+            <li>Attached Bathroom</li>
+            <li>Hot Water</li>
+          </ul>
+          <a href="https://wa.me/918942839079?text=I want to book the Deluxe Room at Sherpa Community Homestay"
+             target="_blank"
+             class="btn-primary block text-center mt-4">
+            Book This Room
+          </a>
+        </div>
+      </div>
+
+      <!-- ROOM 2 -->
+      <div class="border rounded-xl shadow-sm overflow-hidden">
+        <img src="images/room2.jpg" class="h-48 w-full object-cover" alt="Family Room">
+        <div class="p-4">
+          <h4 class="text-lg font-semibold">Family Room</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Spacious room ideal for families and small groups.
+          </p>
+          <ul class="text-sm text-gray-700 mt-2 list-disc list-inside">
+            <li>4 Guests</li>
+            <li>Large Beds</li>
+            <li>Room Heater</li>
+          </ul>
+          <a href="https://wa.me/918942839079?text=I want to book the Family Room at Sherpa Community Homestay"
+             target="_blank"
+             class="btn-primary block text-center mt-4">
+            Book This Room
+          </a>
+        </div>
+      </div>
+
+      <!-- ROOM 3 -->
+      <div class="border rounded-xl shadow-sm overflow-hidden">
+        <img src="images/room3.jpg" class="h-48 w-full object-cover" alt="Standard Room">
+        <div class="p-4">
+          <h4 class="text-lg font-semibold">Standard Room</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Comfortable and affordable room for solo or couple travelers.
+          </p>
+          <ul class="text-sm text-gray-700 mt-2 list-disc list-inside">
+            <li>1–2 Guests</li>
+            <li>Shared Bathroom</li>
+            <li>Quiet Surroundings</li>
+          </ul>
+          <a href="https://wa.me/918942839079?text=I want to book the Standard Room at Sherpa Community Homestay"
+             target="_blank"
+             class="btn-primary block text-center mt-4">
+            Book This Room
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- GALLERY -->
-<section class="py-12 bg-white">
+<section class="py-12 bg-[--bg]">
   <div class="container mx-auto px-6">
     <h3 class="text-2xl font-semibold mb-6 text-center">Gallery</h3>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -84,25 +158,6 @@
       <img src="images/g3.jpg" class="rounded shadow object-cover h-40 w-full">
       <img src="images/g4.jpg" class="rounded shadow object-cover h-40 w-full">
     </div>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section id="booking" class="py-12 container mx-auto px-6">
-  <div class="max-w-lg mx-auto bg-white shadow rounded-xl p-6">
-    <h3 class="text-xl font-semibold mb-4 text-center">Book Your Stay</h3>
-
-    <form id="bookingForm" class="space-y-3">
-      <input required placeholder="Your Name" class="w-full p-3 border rounded">
-      <input required type="tel" placeholder="Phone Number" class="w-full p-3 border rounded">
-      <input required type="date" class="w-full p-3 border rounded">
-      <input required type="date" class="w-full p-3 border rounded">
-      <input required type="number" min="1" placeholder="Guests" class="w-full p-3 border rounded">
-
-      <button type="submit" class="btn-primary w-full">
-        Send Booking via WhatsApp
-      </button>
-    </form>
   </div>
 </section>
 
@@ -122,13 +177,6 @@
   © Sherpa Community Homestay, Sukhia Pokhari
 </footer>
 
-<script>
-  document.getElementById("bookingForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    const msg = "Hello! I would like to book a stay at Sherpa Community Homestay.";
-    window.open("https://wa.me/918942839079?text=" + encodeURIComponent(msg), "_blank");
-  });
-</script>
-
 </body>
 </html>
+
