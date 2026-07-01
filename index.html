@@ -1,166 +1,388 @@
+
+
+Index · HTML
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
+ 
   <title>Sherpa Community Homestay | Sukhia Pokhari, West Bengal</title>
   <meta name="description" content="Stay at Sherpa Community Homestay in Sukhia Pokhari, West Bengal. Enjoy authentic Sherpa hospitality, cozy rooms, and peaceful mountain views.">
-
+ 
   <!-- Tailwind -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+ 
+  <!-- Fonts: Fraunces (carved-signage display) + Work Sans (body) + IBM Plex Mono (route markers / data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+ 
   <style type="text/tailwindcss">
+    :root {
+      --pine: #16302A;      /* deep pine forest - primary */
+      --pine-light: #2C5245; /* hover state */
+      --stone: #55524A;      /* warm stone grey - secondary text */
+      --marigold: #D98A33;   /* saffron / marigold accent */
+      --marigold-dark: #B8722A;
+      --mist: #F4F0E6;       /* warm mist background, not pure white */
+      --card: #FBF9F3;
+      --charcoal: #22221E;
+      --flag-blue: #3C6E8F;
+      --flag-red: #AE4A3E;
+      --flag-yellow: #D9A833;
+      --flag-green: #4C7A5C;
+    }
+ 
     html { scroll-behavior: smooth; }
-    
-    :root { 
-      --primary: #1e40af; 
-      --bg: #f8fafc;
-      --secondary: #64748b;
-    }
-
+    body { font-family: 'Work Sans', sans-serif; background: var(--mist); color: var(--charcoal); }
+    h1, h2, h3, h4, .font-display { font-family: 'Fraunces', serif; }
+    .font-mono-route { font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; }
+ 
     .btn-primary {
-      @apply bg-blue-600 hover:bg-blue-700 transition text-white px-5 py-3 rounded-md shadow font-medium;
+      @apply transition text-white px-6 py-3 rounded-sm shadow-md font-medium tracking-wide;
+      background: var(--marigold);
     }
-
+    .btn-primary:hover { background: var(--marigold-dark); }
+ 
     .btn-secondary {
-      @apply bg-gray-200 hover:bg-gray-300 transition text-gray-800 px-5 py-3 rounded-md shadow font-medium;
+      @apply transition px-6 py-3 rounded-sm shadow font-medium tracking-wide border;
+      background: transparent;
+      color: var(--mist);
+      border-color: rgba(244,240,230,0.6);
     }
-
+    .btn-secondary:hover { background: rgba(244,240,230,0.12); }
+ 
     .btn-whatsapp {
-      @apply bg-[#25D366] hover:bg-[#128C7E] transition text-white px-5 py-3 rounded-md shadow font-medium;
+      @apply bg-[#25D366] hover:bg-[#1DA851] transition text-white px-5 py-3 rounded-sm shadow font-medium;
     }
-
-    /* Animation for reviews */
+ 
+    /* Prayer-flag rule: five small colour tabs used as a section marker, not decoration-for-its-own-sake */
+    .flag-rule {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .flag-rule span {
+      display: block;
+      width: 14px;
+      height: 9px;
+      border-radius: 1px 1px 3px 3px;
+    }
+ 
+    /* Ridge divider — a simple mountain silhouette used between hero and content */
+    .ridge {
+      display: block;
+      width: 100%;
+      height: 64px;
+      background: var(--mist);
+    }
+ 
     [data-aos] {
       opacity: 0;
-      transition: opacity 0.5s ease-out;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    
     [data-aos].aos-animate {
       opacity: 1;
+      transform: translateY(0);
+    }
+ 
+    .route-card {
+      background: var(--card);
+      border: 1px solid rgba(22,48,42,0.08);
+    }
+ 
+    .altitude-tag {
+      background: var(--pine);
+      color: var(--mist);
     }
   </style>
 </head>
-
-<body class="bg-[--bg] text-gray-800 pt-16">
-
+ 
+<body class="pt-[68px]">
+ 
 <!-- HEADER -->
-<header class="fixed top-0 w-full bg-white shadow-lg z-50">
-  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-[--primary]">Sherpa Community Homestay</h1>
+<header class="fixed top-0 w-full z-50" style="background: var(--pine);">
+  <div class="container mx-auto px-5 md:px-8 py-4 flex justify-between items-center">
+    <h1 class="text-lg md:text-xl font-display font-semibold tracking-wide" style="color: var(--mist);">
+      Sherpa Community Homestay
+    </h1>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium" style="color: var(--mist);">
+      <a href="#rooms" class="hover:opacity-70 transition">Rooms</a>
+      <a href="#reviews" class="hover:opacity-70 transition">Reviews</a>
+      <a href="#find-us" class="hover:opacity-70 transition">Find Us</a>
+    </nav>
     <a href="https://wa.me/918942839079" target="_blank" class="btn-whatsapp text-sm">
-      📱 WhatsApp
+      WhatsApp
     </a>
   </div>
 </header>
-
+ 
 <!-- HERO -->
-<section class="relative h-[80vh]">
+<section class="relative h-[86vh] min-h-[520px]">
   <img src="images/hero.jpeg" class="w-full h-full object-cover" alt="Sherpa Community Homestay - Mountain View">
-  <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30 flex items-center">
-    <div class="container mx-auto px-6 text-white">
-      <h2 class="text-4xl md:text-6xl font-bold max-w-3xl mb-4">
-        Sherpa Community Homestay
-      </h2>
-      <p class="text-xl max-w-2xl mb-6">
-        Authentic Sherpa hospitality, peaceful village life, and fresh mountain air — 
-        Experience the heart of Sukhia Pokhari, West Bengal.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a href="#rooms" class="btn-primary text-center">View Rooms</a>
-        <a href="https://wa.me/918942839079" target="_blank" class="btn-whatsapp text-center">
-          Contact on WhatsApp
-        </a>
+  <div class="absolute inset-0" style="background: linear-gradient(100deg, rgba(22,48,42,0.78) 0%, rgba(22,48,42,0.42) 55%, rgba(22,48,42,0.15) 100%);"></div>
+ 
+  <div class="absolute inset-0 flex items-center">
+    <div class="container mx-auto px-5 md:px-8">
+      <div class="max-w-2xl" data-aos="fade-up">
+        <p class="font-mono-route text-xs md:text-sm uppercase mb-4" style="color: var(--marigold);">
+          Sukhia Pokhari · West Bengal · 2,100 M
+        </p>
+        <h2 class="text-4xl md:text-6xl font-display font-semibold leading-[1.05] mb-5" style="color: var(--mist);">
+          A Sherpa household,
+          <em class="font-normal" style="color: var(--marigold);">open to guests.</em>
+        </h2>
+        <p class="text-base md:text-lg max-w-lg mb-8" style="color: rgba(244,240,230,0.88);">
+          Home-cooked meals, wood-warmed rooms, and a village view of the hills
+          your hosts have called home for generations.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#rooms" class="btn-primary text-center">See the Rooms</a>
+          <a href="https://wa.me/918942839079" target="_blank" class="btn-secondary text-center">
+            Message on WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </div>
+ 
+  <svg class="absolute bottom-0 left-0 w-full ridge" viewBox="0 0 1200 90" preserveAspectRatio="none">
+    <path d="M0,90 L0,55 L120,20 L230,50 L340,10 L460,42 L560,25 L680,58 L800,15 L920,48 L1040,28 L1200,55 L1200,90 Z" fill="#F4F0E6"/>
+  </svg>
 </section>
-
+ 
 <!-- ABOUT -->
-<section class="py-16 container mx-auto px-6">
+<section class="py-20 container mx-auto px-5 md:px-8">
   <div class="max-w-4xl mx-auto">
-    <h3 class="text-3xl font-bold mb-6 text-[--primary]">Welcome to Our Homestay</h3>
-    <p class="text-lg text-gray-700 mb-6">
-      Nestled in the peaceful hills of Sukhia Pokhari, our Sherpa Community Homestay offers 
-      a warm family stay experience with clean, comfortable rooms, delicious home-cooked meals, 
-      and breathtaking natural surroundings. Perfect for travelers seeking tranquility, 
+    <div class="flag-rule mb-6" data-aos="fade-up">
+      <span style="background: var(--flag-blue);"></span>
+      <span style="background: var(--flag-red);"></span>
+      <span style="background: var(--flag-yellow);"></span>
+      <span style="background: var(--flag-green);"></span>
+      <span style="background: var(--marigold);"></span>
+    </div>
+    <h3 class="text-3xl md:text-4xl font-display font-semibold mb-6" style="color: var(--pine);" data-aos="fade-up">
+      Welcome to Our Homestay
+    </h3>
+    <p class="text-lg leading-relaxed mb-10" style="color: var(--stone);" data-aos="fade-up">
+      Nestled in the peaceful hills of Sukhia Pokhari, our Sherpa Community Homestay offers
+      a warm family stay experience with clean, comfortable rooms, delicious home-cooked meals,
+      and breathtaking natural surroundings — perfect for travelers seeking tranquility,
       cultural immersion, and a genuine connection with nature.
     </p>
-    
-    <div class="grid md:grid-cols-2 gap-8 mt-8">
-      <div class="bg-white p-6 rounded-xl shadow-md">
-        <h4 class="text-xl font-semibold mb-4 text-[--primary]">Our Features</h4>
-        <ul class="space-y-2">
-          <li class="flex items-center">
-            <span class="text-green-500 mr-2">✓</span>
-            Clean & cozy rooms with mountain views
+ 
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+      <div class="route-card p-7 rounded-sm shadow-sm" data-aos="fade-up">
+        <h4 class="text-lg font-display font-semibold mb-4" style="color: var(--pine);">What's Included</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span style="color: var(--marigold);">◆</span>
+            <span>Clean, cozy rooms with mountain views</span>
           </li>
-          <li class="flex items-center">
-            <span class="text-green-500 mr-2">✓</span>
-            Traditional home-cooked Sherpa meals
+          <li class="flex items-start gap-3">
+            <span style="color: var(--marigold);">◆</span>
+            <span>Traditional home-cooked Sherpa meals</span>
           </li>
-          <li class="flex items-center">
-            <span class="text-green-500 mr-2">✓</span>
-            Peaceful village environment
+          <li class="flex items-start gap-3">
+            <span style="color: var(--marigold);">◆</span>
+            <span>A quiet, unhurried village setting</span>
           </li>
-          <li class="flex items-center">
-            <span class="text-green-500 mr-2">✓</span>
-            Friendly Sherpa family hosts
+          <li class="flex items-start gap-3">
+            <span style="color: var(--marigold);">◆</span>
+            <span>Hosted directly by a Sherpa family</span>
           </li>
         </ul>
       </div>
-      
-      <div class="bg-white p-6 rounded-xl shadow-md">
-        <h4 class="text-xl font-semibold mb-4 text-[--primary]">Ideal For</h4>
-        <ul class="space-y-2">
-          <li class="flex items-center">
-            <span class="text-blue-500 mr-2">•</span>
-            Family vacations
-          </li>
-          <li class="flex items-center">
-            <span class="text-blue-500 mr-2">•</span>
-            Solo travelers & backpackers
-          </li>
-          <li class="flex items-center">
-            <span class="text-blue-500 mr-2">•</span>
-            Nature lovers & photographers
-          </li>
-          <li class="flex items-center">
-            <span class="text-blue-500 mr-2">•</span>
-            Cultural enthusiasts
-          </li>
-          <li class="flex items-center">
-            <span class="text-blue-500 mr-2">•</span>
-            Hiking
-          </li>
-          <li class="flex items-center">
-            <span class="text-blue-500 mr-2">•</span>
-            Biking
-          </li>
-          <li class="flex items-center">
-            <span class="text-blue-500 mr-2">•</span>
-            Birding
-          </li>
+ 
+      <div class="route-card p-7 rounded-sm shadow-sm" data-aos="fade-up">
+        <h4 class="text-lg font-display font-semibold mb-4" style="color: var(--pine);">Good For</h4>
+        <ul class="grid grid-cols-2 gap-y-3 gap-x-2 text-sm">
+          <li class="flex items-center gap-2"><span style="color: var(--pine-light);">—</span>Family trips</li>
+          <li class="flex items-center gap-2"><span style="color: var(--pine-light);">—</span>Solo travel</li>
+          <li class="flex items-center gap-2"><span style="color: var(--pine-light);">—</span>Photography</li>
+          <li class="flex items-center gap-2"><span style="color: var(--pine-light);">—</span>Culture trips</li>
+          <li class="flex items-center gap-2"><span style="color: var(--pine-light);">—</span>Hiking</li>
+          <li class="flex items-center gap-2"><span style="color: var(--pine-light);">—</span>Biking</li>
+          <li class="flex items-center gap-2"><span style="color: var(--pine-light);">—</span>Birding</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ROOMS -->
-<section id="rooms" class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <h3 class="text-3xl font-bold text-center mb-12 text-[--primary]">Our Rooms</h3>
-
+<section id="rooms" class="py-20" style="background: var(--card);">
+  <div class="container mx-auto px-5 md:px-8">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <p class="font-mono-route text-xs uppercase" style="color: var(--marigold-dark);">The Route Up</p>
+    </div>
+    <h3 class="text-3xl md:text-4xl font-display font-semibold text-center mb-3" style="color: var(--pine);" data-aos="fade-up">
+      Our Rooms
+    </h3>
+    <p class="text-center max-w-xl mx-auto mb-14" style="color: var(--stone);" data-aos="fade-up">
+      Each room borrows its name — and its altitude marker — from a real waypoint
+      on the climbers' route to Everest's summit.
+    </p>
+ 
     <div class="grid md:grid-cols-2 gap-8">
-
-      <!-- DELUXE COTTAGE -->
-      <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+ 
+      <!-- FAMILY ROOM (village / base) -->
+      <div class="route-card rounded-sm shadow-md overflow-hidden md:col-span-2" data-aos="fade-up">
         <div class="relative">
-          <img src="images/deluxe0.jpeg" class="room-img w-full h-64 object-cover" alt="Deluxe Cottage Room">
-          <button onclick="prev(this)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">‹</button>
-          <button onclick="next(this)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">›</button>
+          <img src="images/family1.jpeg" class="room-img w-full h-72 object-cover" alt="Family Rooms">
+          <button onclick="prev(this)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">‹</button>
+          <button onclick="next(this)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">›</button>
+          <span class="altitude-tag absolute top-3 left-3 font-mono-route text-xs px-3 py-1 rounded-sm">SUKHIA POKHARI · 2,100 M</span>
+          <div class="hidden">
+            <img src="images/family2.jpeg" alt="Family Room Interior">
+            <img src="images/family3.jpeg" alt="Family Room Common Area">
+            <img src="images/family4.jpeg" alt="Family Room Common Area">
+            <img src="images/family5.jpeg" alt="Family Room Common Area">
+            <img src="images/family6.jpeg" alt="Family Room Common Area">
+          </div>
+        </div>
+        <div class="p-6">
+          <h4 class="text-xl font-display font-semibold mb-2" style="color: var(--pine);">Family Rooms (3 Rooms)</h4>
+          <p class="mb-4" style="color: var(--stone);">
+            Perfect for large families or groups — three interconnected rooms with a shared balcony and common bathroom.
+          </p>
+          <ul class="space-y-2 mb-5 text-sm">
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Capacity</span><span>8 persons</span>
+            </li>
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Tariff</span>
+              <span class="font-mono-route font-semibold" style="color: var(--marigold-dark);">₹1,400 / person / day</span>
+            </li>
+            <li style="color: var(--stone);">Includes all meals — ideal for reunions and group trips</li>
+          </ul>
+          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Family%20Room%20(3%20Rooms)"
+             class="btn-primary block text-center w-full" target="_blank">
+            Book Family Rooms
+          </a>
+        </div>
+      </div>
+ 
+      <!-- STANDARD COTTAGE / HIGH CAMP -->
+      <div class="route-card rounded-sm shadow-md overflow-hidden" data-aos="fade-up">
+        <div class="relative">
+          <img src="images/standardc1.jpeg" class="room-img w-full h-64 object-cover" alt="Standard Cottage Room">
+          <button onclick="prev(this)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">‹</button>
+          <button onclick="next(this)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">›</button>
+          <span class="altitude-tag absolute top-3 left-3 font-mono-route text-xs px-3 py-1 rounded-sm">HIGH CAMP · 7,200 M</span>
+          <div class="hidden">
+            <img src="images/standardc2.jpeg" alt="Standard Cottage Interior">
+            <img src="images/standardc3.jpeg" alt="Standard Cottage View">
+            <img src="images/standardc4.jpeg" alt="Standard Cottage View">
+            <img src="images/standardc5.jpeg" alt="Standard Cottage View">
+            <img src="images/standardc6.jpeg" alt="Standard Cottage View">
+            <img src="images/standardc7.jpeg" alt="Standard Cottage View">
+          </div>
+        </div>
+        <div class="p-6">
+          <h4 class="text-xl font-display font-semibold mb-2" style="color: var(--pine);">High Camp <span class="text-base font-normal" style="color: var(--stone);">— Standard Cottage</span></h4>
+          <p class="mb-4" style="color: var(--stone);">
+            A cozy cottage with a balcony view and attached bathroom — rustic charm with modern comfort.
+          </p>
+          <ul class="space-y-2 mb-5 text-sm">
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Capacity</span><span>4 persons</span>
+            </li>
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Tariff</span>
+              <span class="font-mono-route font-semibold" style="color: var(--marigold-dark);">₹1,700 / person / day</span>
+            </li>
+            <li style="color: var(--stone);">All meals, with local Sherpa specialties</li>
+          </ul>
+          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Standard%20Cottage%20Room"
+             class="btn-primary block text-center w-full" target="_blank">
+            Book This Room
+          </a>
+        </div>
+      </div>
+ 
+      <!-- PREMIUM COTTAGE / BASE CAMP -->
+      <div class="route-card rounded-sm shadow-md overflow-hidden" data-aos="fade-up">
+        <div class="relative">
+          <img src="images/premium1.jpeg" class="room-img w-full h-64 object-cover" alt="Premium Cottage Room">
+          <button onclick="prev(this)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">‹</button>
+          <button onclick="next(this)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">›</button>
+          <span class="altitude-tag absolute top-3 left-3 font-mono-route text-xs px-3 py-1 rounded-sm">BASE CAMP · 5,364 M</span>
+          <div class="hidden">
+            <img src="images/premium2.jpeg" alt="Premium Cottage Interior">
+            <img src="images/premium3.jpeg" alt="Premium Cottage Lawn">
+            <img src="images/premium4.jpeg" alt="Premium Cottage Lawn">
+            <img src="images/premium5.jpeg" alt="Premium Cottage Lawn">
+            <img src="images/premium6.jpeg" alt="Premium Cottage Lawn">
+            <img src="images/premium7.jpeg" alt="Premium Cottage Lawn">
+            <img src="images/premium8.jpeg" alt="Premium Cottage Lawn">
+          </div>
+        </div>
+        <div class="p-6">
+          <h4 class="text-xl font-display font-semibold mb-2" style="color: var(--pine);">Base Camp <span class="text-base font-normal" style="color: var(--stone);">— Premium Cottage</span></h4>
+          <p class="mb-4" style="color: var(--stone);">
+            A private cottage with balcony view and an exclusive lawn — well suited to honeymoons and pre-wedding shoots.
+          </p>
+          <ul class="space-y-2 mb-5 text-sm">
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Capacity</span><span>4 persons</span>
+            </li>
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Tariff</span>
+              <span class="font-mono-route font-semibold" style="color: var(--marigold-dark);">₹1,800 / person / day</span>
+            </li>
+            <li style="color: var(--stone);">All meals, plus a romantic setup on request</li>
+          </ul>
+          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Premium%20Cottage%20Room"
+             class="btn-primary block text-center w-full" target="_blank">
+            Book This Room
+          </a>
+        </div>
+      </div>
+ 
+      <!-- STANDARD ROOM / SOUTH COL -->
+      <div class="route-card rounded-sm shadow-md overflow-hidden" data-aos="fade-up">
+        <div class="relative">
+          <img src="images/standard1.jpeg" class="room-img w-full h-64 object-cover" alt="Standard Room">
+          <button onclick="prev(this)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">‹</button>
+          <button onclick="next(this)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">›</button>
+          <span class="altitude-tag absolute top-3 left-3 font-mono-route text-xs px-3 py-1 rounded-sm">SOUTH COL · 7,906 M</span>
+          <div class="hidden">
+            <img src="images/standard2.jpeg" alt="Standard Room Interior">
+            <img src="images/standard3.jpeg" alt="Standard Room Balcony">
+          </div>
+        </div>
+        <div class="p-6">
+          <h4 class="text-xl font-display font-semibold mb-2" style="color: var(--pine);">South Col <span class="text-base font-normal" style="color: var(--stone);">— Standard Room</span></h4>
+          <p class="mb-4" style="color: var(--stone);">
+            Our best balcony view, with an attached bathroom — well suited to small families and couples.
+          </p>
+          <ul class="space-y-2 mb-5 text-sm">
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Capacity</span><span>4–5 persons</span>
+            </li>
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Tariff</span>
+              <span class="font-mono-route font-semibold" style="color: var(--marigold-dark);">₹1,500 / person / day</span>
+            </li>
+            <li style="color: var(--stone);">All meals — breakfast, lunch, evening tea, dinner</li>
+          </ul>
+          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Standard%20Room"
+             class="btn-primary block text-center w-full" target="_blank">
+            Book This Room
+          </a>
+        </div>
+      </div>
+ 
+      <!-- DELUXE COTTAGE / SUMMIT -->
+      <div class="route-card rounded-sm shadow-md overflow-hidden md:col-span-2" data-aos="fade-up">
+        <div class="relative">
+          <img src="images/deluxe0.jpeg" class="room-img w-full h-72 object-cover" alt="Deluxe Cottage Room">
+          <button onclick="prev(this)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">‹</button>
+          <button onclick="next(this)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white px-3 py-1 rounded-full">›</button>
+          <span class="altitude-tag absolute top-3 left-3 font-mono-route text-xs px-3 py-1 rounded-sm" style="background: var(--marigold-dark);">SUMMIT · 8,849 M</span>
           <div class="hidden">
             <img src="images/deluxe1.jpeg" alt="Deluxe Cottage Interior">
             <img src="images/deluxe2.jpeg" alt="Deluxe Cottage Interior">
@@ -170,340 +392,173 @@
             <img src="images/deluxe6.jpeg" alt="Deluxe Cottage Interior">
             <img src="images/deluxe7.jpeg" alt="Deluxe Cottage View">
             <img src="images/deluxe8.jpeg" alt="Deluxe Cottage View">
-            
           </div>
         </div>
         <div class="p-6">
-          <h4 class="text-xl font-bold mb-2">Summit (Deluxe Cottage Room)</h4>
-          <p class="text-gray-600 mb-4">
-            Window & balcony with stunning mountain views, attached bathroom with modern amenities.
+          <h4 class="text-xl font-display font-semibold mb-2" style="color: var(--pine);">Summit <span class="text-base font-normal" style="color: var(--stone);">— Deluxe Cottage</span></h4>
+          <p class="mb-4" style="color: var(--stone);">
+            Our top room — window and balcony with stunning mountain views, and an attached bathroom with modern amenities.
           </p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex justify-between">
-              <span class="font-medium">Capacity:</span>
-              <span>4 persons</span>
+          <ul class="space-y-2 mb-5 text-sm">
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Capacity</span><span>4 persons</span>
             </li>
-            <li class="flex justify-between">
-              <span class="font-medium">Tariff:</span>
-              <span class="text-[--primary] font-bold">₹2000 per person / day</span>
+            <li class="flex justify-between border-b pb-2" style="border-color: rgba(22,48,42,0.1);">
+              <span class="font-medium">Tariff</span>
+              <span class="font-mono-route font-semibold" style="color: var(--marigold-dark);">₹2,000 / person / day</span>
             </li>
-            <li class="text-sm text-gray-500">
-              Includes: Lunch, Evening Snacks, Dinner & Breakfast
-            </li>
+            <li style="color: var(--stone);">Lunch, evening snacks, dinner and breakfast included</li>
           </ul>
           <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Deluxe%20Cottage%20Room"
-             class="btn-primary block text-center w-full" target="_blank">
+             class="btn-primary block text-center w-full md:w-auto md:px-10" target="_blank">
             Book This Room
           </a>
         </div>
       </div>
-
-      <!-- STANDARD ROOM -->
-      <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <div class="relative">
-          <img src="images/standard1.jpeg" class="room-img w-full h-64 object-cover" alt="Standard Room">
-          <button onclick="prev(this)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">‹</button>
-          <button onclick="next(this)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">›</button>
-          <div class="hidden">
-            <img src="images/standard2.jpeg" alt="Standard Room Interior">
-            <img src="images/standard3.jpeg" alt="Standard Room Balcony">
-            <img src="images/standard3.jpeg" alt="Standard Room Balcony">
-            
-          </div>
-        </div>
-        <div class="p-6">
-          <h4 class="text-xl font-bold mb-2">South Col (Standard Room)</h4>
-          <p class="text-gray-600 mb-4">
-            Best balcony view with attached bathroom. Perfect for small families and couples.
-          </p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex justify-between">
-              <span class="font-medium">Capacity:</span>
-              <span>4–5 persons</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="font-medium">Tariff:</span>
-              <span class="text-[--primary] font-bold">₹1500 per person / day</span>
-            </li>
-            <li class="text-sm text-gray-500">
-              Includes all meals: Breakfast, Lunch, Evening Tea, Dinner
-            </li>
-          </ul>
-          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Standard%20Room"
-             class="btn-primary block text-center w-full" target="_blank">
-            Book This Room
-          </a>
-        </div>
-      </div>
-
-      <!-- STANDARD COTTAGE -->
-      <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <div class="relative">
-          <img src="images/standardc1.jpeg" class="room-img w-full h-64 object-cover" alt="Standard Cottage Room">
-          <button onclick="prev(this)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">‹</button>
-          <button onclick="next(this)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">›</button>
-          <div class="hidden">
-            <img src="images/standardc2.jpeg" alt="Standard Cottage Interior">
-            <img src="images/standardc3.jpeg" alt="Standard Cottage View">
-            <img src="images/standardc4.jpeg" alt="Standard Cottage View">
-            <img src="images/standardc5.jpeg" alt="Standard Cottage View">
-            <img src="images/standardc6.jpeg" alt="Standard Cottage View">
-            <img src="images/standardc7.jpeg" alt="Standard Cottage View">
-            
-            
-          </div>
-        </div>
-        <div class="p-6">
-          <h4 class="text-xl font-bold mb-2">High Camp(Standard Cottage Room)</h4>
-          <p class="text-gray-600 mb-4">
-            Cozy cottage with balcony view and attached bathroom. Rustic charm with modern comfort.
-          </p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex justify-between">
-              <span class="font-medium">Capacity:</span>
-              <span>4 persons</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="font-medium">Tariff:</span>
-              <span class="text-[--primary] font-bold">₹1700 per person / day</span>
-            </li>
-            <li class="text-sm text-gray-500">
-              Includes all meals with local Sherpa specialties
-            </li>
-          </ul>
-          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Standard%20Cottage%20Room"
-             class="btn-primary block text-center w-full" target="_blank">
-            Book This Room
-          </a>
-        </div>
-      </div>
-
-      <!-- PREMIUM COTTAGE -->
-      <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <div class="relative">
-          <img src="images/premium1.jpeg" class="room-img w-full h-64 object-cover" alt="Premium Cottage Room">
-          <button onclick="prev(this)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">‹</button>
-          <button onclick="next(this)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">›</button>
-          <div class="hidden">
-            <img src="images/premium2.jpeg" alt="Premium Cottage Interior">
-            <img src="images/premium3.jpeg" alt="Premium Cottage Lawn">
-            <img src="images/premium4.jpeg" alt="Premium Cottage Lawn">
-            <img src="images/premium5.jpeg" alt="Premium Cottage Lawn">
-            <img src="images/premium6.jpeg" alt="Premium Cottage Lawn">
-            <img src="images/premium7.jpeg" alt="Premium Cottage Lawn">
-            <img src="images/premium8.jpeg" alt="Premium Cottage Lawn">
-            
-            
-          </div>
-        </div>
-        <div class="p-6">
-          <h4 class="text-xl font-bold mb-2">Base Camp (Premium Cottage Room)</h4>
-          <p class="text-gray-600 mb-4">
-            Private cottage with balcony view, exclusive lawn area. Perfect for honeymoon & pre-wedding photoshoots.
-          </p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex justify-between">
-              <span class="font-medium">Capacity:</span>
-              <span>4 persons</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="font-medium">Tariff:</span>
-              <span class="text-[--primary] font-bold">₹1800 per person / day</span>
-            </li>
-            <li class="text-sm text-gray-500">
-              Includes all meals + Special romantic setup available
-            </li>
-          </ul>
-          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Premium%20Cottage%20Room"
-             class="btn-primary block text-center w-full" target="_blank">
-            Book This Room
-          </a>
-        </div>
-      </div>
-
-      <!-- FAMILY ROOM -->
-      <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 md:col-span-2">
-        <div class="relative">
-          <img src="images/family1.jpeg" class="room-img w-full h-72 object-cover" alt="Family Rooms">
-          <button onclick="prev(this)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">‹</button>
-          <button onclick="next(this)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white px-3 py-1 rounded-full shadow">›</button>
-          <div class="hidden">
-            <img src="images/family2.jpeg" alt="Family Room Interior">
-            <img src="images/family3.jpeg" alt="Family Room Common Area">
-            <img src="images/family4.jpeg" alt="Family Room Common Area">
-            <img src="images/family5.jpeg" alt="Family Room Common Area">
-            <img src="images/family6.jpeg" alt="Family Room Common Area">
-            
-          </div>
-        </div>
-        <div class="p-6">
-          <h4 class="text-xl font-bold mb-2">Family Rooms (3 Rooms)</h4>
-          <p class="text-gray-600 mb-4">
-            Perfect for large families or groups. Three interconnected rooms with shared balcony and common bathroom.
-          </p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex justify-between">
-              <span class="font-medium">Capacity:</span>
-              <span>8 persons</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="font-medium">Tariff:</span>
-              <span class="text-[--primary] font-bold">₹1400 per person / day</span>
-            </li>
-            <li class="text-sm text-gray-500">
-              Includes all meals. Perfect for family reunions and group trips
-            </li>
-          </ul>
-          <a href="https://wa.me/918942839079?text=I%20want%20to%20book%20the%20Family%20Room%20(3%20Rooms)"
-             class="btn-primary block text-center w-full" target="_blank">
-            Book Family Rooms
-          </a>
-        </div>
-      </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- REVIEWS -->
-<section id="reviews" class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6 max-w-4xl">
-    <h3 class="text-3xl font-bold text-center mb-12 text-[--primary]">Guest Reviews</h3>
-
-    <div class="bg-white rounded-2xl shadow-xl p-8" data-aos="fade-up">
+<section id="reviews" class="py-20" style="background: var(--pine);">
+  <div class="container mx-auto px-5 md:px-8 max-w-4xl">
+    <h3 class="text-3xl md:text-4xl font-display font-semibold text-center mb-12" style="color: var(--mist);" data-aos="fade-up">
+      Guest Reviews
+    </h3>
+ 
+    <div class="rounded-sm shadow-xl p-8 md:p-10" style="background: var(--card);" data-aos="fade-up">
       <div class="flex flex-col items-center">
-        
+ 
         <div class="flex items-center gap-4 mb-4">
-          <div class="text-5xl font-bold text-green-600">4.9</div>
+          <div class="text-5xl font-display font-semibold" style="color: var(--pine);">4.9</div>
           <div class="flex flex-col">
-            <div class="flex text-yellow-400 text-3xl">
-              ★★★★★
-            </div>
-            <span class="text-sm text-gray-500 font-medium">Excellent Quality</span>
+            <div class="text-2xl" style="color: var(--marigold);">★★★★★</div>
+            <span class="text-sm font-medium" style="color: var(--stone);">Excellent Quality</span>
           </div>
         </div>
-        
-        <p class="text-gray-600 text-center mb-8">
+ 
+        <p class="text-center mb-8" style="color: var(--stone);">
           Based on verified guest experiences at our Sukhia Pokhari property
         </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 w-full">
-          <div class="text-center p-4 bg-blue-50 rounded-lg border border-blue-100">
-            <div class="text-2xl font-bold text-blue-700">240+</div>
-            <div class="text-gray-600 text-sm">Happy Guests</div>
+ 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8 w-full">
+          <div class="text-center p-5 rounded-sm border" style="background: rgba(60,110,143,0.06); border-color: rgba(60,110,143,0.2);">
+            <div class="text-2xl font-mono-route font-semibold" style="color: var(--flag-blue);">240+</div>
+            <div class="text-sm mt-1" style="color: var(--stone);">Happy Guests</div>
           </div>
-          <div class="text-center p-4 bg-green-50 rounded-lg border border-green-100">
-            <div class="text-2xl font-bold text-green-600">99%</div>
-            <div class="text-gray-600 text-sm">Hospitality Score</div>
+          <div class="text-center p-5 rounded-sm border" style="background: rgba(76,122,92,0.08); border-color: rgba(76,122,92,0.25);">
+            <div class="text-2xl font-mono-route font-semibold" style="color: var(--flag-green);">99%</div>
+            <div class="text-sm mt-1" style="color: var(--stone);">Hospitality Score</div>
           </div>
-          <div class="text-center p-4 bg-yellow-50 rounded-lg border border-yellow-100">
-            <div class="text-2xl font-bold text-yellow-700">4.8/5</div>
-            <div class="text-gray-600 text-sm">Average Rating</div>
+          <div class="text-center p-5 rounded-sm border" style="background: rgba(217,138,51,0.1); border-color: rgba(217,138,51,0.3);">
+            <div class="text-2xl font-mono-route font-semibold" style="color: var(--marigold-dark);">4.9/5</div>
+            <div class="text-sm mt-1" style="color: var(--stone);">Average Rating</div>
           </div>
         </div>
-
+ 
         <div class="flex flex-col sm:flex-row gap-4 justify-center w-full">
           <a href="https://www.google.com/maps/search/Sherpa+Community+Homestay+Sukhia+Pokhari"
              target="_blank"
-             class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2 shadow-md"
+             class="btn-primary flex items-center justify-center gap-2"
              rel="noopener noreferrer">
-            <span>⭐</span>
             Read Google Reviews
           </a>
-
+ 
           <a href="https://www.google.com/maps/search/Sherpa+Community+Homestay+Sukhia+Pokhari"
              target="_blank"
-             class="bg-gray-100 text-gray-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition flex items-center justify-center gap-2 border border-gray-300"
+             class="flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium border transition"
+             style="color: var(--pine); border-color: rgba(22,48,42,0.25);"
              rel="noopener noreferrer">
-            <span>✍️</span>
             Leave a Review
           </a>
         </div>
-
+ 
       </div>
     </div>
-    
-    <p class="text-center mt-6 text-gray-500 italic text-sm">
+ 
+    <p class="text-center mt-6 italic text-sm" style="color: rgba(244,240,230,0.75);">
       "Authentic Sherpa hospitality in the lap of Kaiyiavir Forest."
     </p>
   </div>
 </section>
-
+ 
 <!-- GALLERY -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <h3 class="text-3xl font-bold text-center mb-12 text-[--primary]">Photo Gallery</h3>
+<section class="py-20">
+  <div class="container mx-auto px-5 md:px-8">
+    <h3 class="text-3xl md:text-4xl font-display font-semibold text-center mb-12" style="color: var(--pine);" data-aos="fade-up">
+      Photo Gallery
+    </h3>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="images/family1.jpeg" class="rounded-lg shadow-md object-cover h-48 w-full hover:scale-105 transition-transform duration-300" alt="Mountain View">
-      <img src="images/deluxe0.jpeg" class="rounded-lg shadow-md object-cover h-48 w-full hover:scale-105 transition-transform duration-300" alt="Homestay Exterior">
-      <img src="images/deluxe5.jpeg" class="rounded-lg shadow-md object-cover h-48 w-full hover:scale-105 transition-transform duration-300" alt="Traditional Food">
-      <img src="images/premium7.jpeg" class="rounded-lg shadow-md object-cover h-48 w-full hover:scale-105 transition-transform duration-300" alt="Garden Area">
+      <img src="images/family1.jpeg" class="rounded-sm shadow-md object-cover h-48 w-full hover:opacity-90 transition" alt="Mountain View" data-aos="fade-up">
+      <img src="images/deluxe0.jpeg" class="rounded-sm shadow-md object-cover h-48 w-full hover:opacity-90 transition" alt="Homestay Exterior" data-aos="fade-up">
+      <img src="images/deluxe5.jpeg" class="rounded-sm shadow-md object-cover h-48 w-full hover:opacity-90 transition" alt="Traditional Food" data-aos="fade-up">
+      <img src="images/premium7.jpeg" class="rounded-sm shadow-md object-cover h-48 w-full hover:opacity-90 transition" alt="Garden Area" data-aos="fade-up">
     </div>
   </div>
 </section>
-
+ 
 <!-- MAP & CONTACT -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h3 class="text-3xl font-bold text-center mb-12 text-[--primary]">Find Us</h3>
-    
+<section id="find-us" class="py-20" style="background: var(--card);">
+  <div class="container mx-auto px-5 md:px-8">
+    <h3 class="text-3xl md:text-4xl font-display font-semibold text-center mb-12" style="color: var(--pine);" data-aos="fade-up">
+      Find Us
+    </h3>
+ 
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Map -->
-      <div class="rounded-xl overflow-hidden shadow-lg">
+      <div class="rounded-sm overflow-hidden shadow-lg" data-aos="fade-up">
         <iframe
           src="https://www.google.com/maps?q=X5P6+36+Sukhia+Pokhari+West+Bengal&output=embed"
-          width="100%" 
-          height="400" 
-          style="border:0;" 
-          allowfullscreen="" 
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
-      
-      <!-- Contact Info -->
-      <div class="bg-white p-8 rounded-xl shadow-lg">
-        <h4 class="text-xl font-bold mb-6 text-[--primary]">Contact Information</h4>
-        
-        <div class="space-y-4">
-          <div class="flex items-center gap-3">
-            <span class="text-gray-400">📍</span>
+ 
+      <div class="p-8 rounded-sm shadow-lg" style="background: var(--mist);" data-aos="fade-up">
+        <h4 class="text-xl font-display font-semibold mb-6" style="color: var(--pine);">Contact Information</h4>
+ 
+        <div class="space-y-5">
+          <div class="flex items-start gap-3">
+            <span style="color: var(--marigold-dark);">📍</span>
             <div>
               <p class="font-medium">Address</p>
-              <p class="text-gray-600">X5P6+36, Sukhia Pokhari, West Bengal 734221</p>
+              <p style="color: var(--stone);">X5P6+36, Sukhia Pokhari, West Bengal 734221</p>
             </div>
           </div>
-          
-          <div class="flex items-center gap-3">
-            <span class="text-gray-400">📞</span>
+ 
+          <div class="flex items-start gap-3">
+            <span style="color: var(--marigold-dark);">📞</span>
             <div>
               <p class="font-medium">Phone / WhatsApp</p>
-              <a href="tel:+918942839079" class="text-[--primary] hover:underline">+91 89428 39079</a>
+              <a href="tel:+918942839079" class="hover:underline" style="color: var(--pine);">+91 89428 39079</a>
             </div>
           </div>
-          
-          <div class="flex items-center gap-3">
-            <span class="text-gray-400">✉️</span>
+ 
+          <div class="flex items-start gap-3">
+            <span style="color: var(--marigold-dark);">✉️</span>
             <div>
               <p class="font-medium">Email</p>
-              <p class="text-gray-600">sherpahomestay@gmail.com</p>
+              <p style="color: var(--stone);">sherpahomestay@gmail.com</p>
             </div>
           </div>
-          
-          <div class="flex items-center gap-3">
-            <span class="text-gray-400">⏰</span>
+ 
+          <div class="flex items-start gap-3">
+            <span style="color: var(--marigold-dark);">⏰</span>
             <div>
               <p class="font-medium">Check-in / Check-out</p>
-              <p class="text-gray-600">12:00 PM / 11:00 AM</p>
+              <p style="color: var(--stone);">12:00 PM / 11:00 AM</p>
             </div>
           </div>
         </div>
-        
+ 
         <div class="mt-8">
-          <a href="https://wa.me/918942839079" 
-             target="_blank" 
+          <a href="https://wa.me/918942839079"
+             target="_blank"
              class="btn-whatsapp w-full text-center flex items-center justify-center gap-2">
-            <span>💬</span>
             Message us on WhatsApp
           </a>
         </div>
@@ -511,30 +566,30 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
-<footer class="bg-gray-800 text-white py-8">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <div class="mb-4 md:mb-0">
-        <h4 class="text-xl font-bold">Sherpa Community Homestay</h4>
-        <p class="text-gray-400 mt-2">Sukhia Pokhari, West Bengal</p>
+<footer class="py-10" style="background: var(--pine); color: var(--mist);">
+  <div class="container mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-center md:text-left">
+        <h4 class="text-lg font-display font-semibold">Sherpa Community Homestay</h4>
+        <p class="text-sm mt-1" style="color: rgba(244,240,230,0.65);">Sukhia Pokhari, West Bengal</p>
       </div>
-      
-      <div class="flex gap-4">
-        <a href="#rooms" class="text-gray-300 hover:text-white transition">Rooms</a>
-        <a href="#reviews" class="text-gray-300 hover:text-white transition">Reviews</a>
-        <a href="https://wa.me/918942839079" target="_blank" class="text-gray-300 hover:text-white transition">Contact</a>
+ 
+      <div class="flex gap-6 text-sm">
+        <a href="#rooms" class="hover:opacity-70 transition">Rooms</a>
+        <a href="#reviews" class="hover:opacity-70 transition">Reviews</a>
+        <a href="https://wa.me/918942839079" target="_blank" class="hover:opacity-70 transition">Contact</a>
       </div>
     </div>
-    
-    <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+ 
+    <div class="border-t mt-6 pt-6 text-center text-sm" style="border-color: rgba(244,240,230,0.15); color: rgba(244,240,230,0.55);">
       <p>© 2024 Sherpa Community Homestay. All rights reserved.</p>
       <p class="mt-2">Experience authentic Sherpa hospitality in the heart of West Bengal's mountains.</p>
     </div>
   </div>
 </footer>
-
+ 
 <script>
 // Image slider functionality
 function next(btn){
@@ -542,44 +597,34 @@ function next(btn){
   const main = box.querySelector(".room-img");
   const imgs = box.querySelectorAll(".hidden img");
   if (imgs.length === 0) return;
-  
   let i = main.dataset.i ? Number(main.dataset.i) : 0;
   i = (i + 1) % imgs.length;
   main.src = imgs[i].src;
   main.dataset.i = i;
 }
-
+ 
 function prev(btn){
   const box = btn.parentElement;
   const main = box.querySelector(".room-img");
   const imgs = box.querySelectorAll(".hidden img");
   if (imgs.length === 0) return;
-  
   let i = main.dataset.i ? Number(main.dataset.i) : 0;
   i = (i - 1 + imgs.length) % imgs.length;
   main.src = imgs[i].src;
   main.dataset.i = i;
 }
-
-// Simple animation on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
+ 
+// Reveal-on-scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('aos-animate');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('aos-animate');
   });
-}, observerOptions);
-
-// Observe all elements with data-aos attribute
-document.querySelectorAll('[data-aos]').forEach(el => {
-  observer.observe(el);
-});
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+ 
+document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
 </script>
-
+ 
 </body>
 </html>
+ 
+
